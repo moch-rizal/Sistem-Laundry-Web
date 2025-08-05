@@ -39,7 +39,7 @@ Sistem ini memiliki dua peran utama dengan fitur yang komprehensif:
 - **Backend:** PHP 8.1, CodeIgniter 4
 - **Frontend:**
   - HTML5, CSS3, JavaScript (jQuery)
-  - **Admin:** Template SB Admin 2 (Bootstrap 5)
+  - **Admin:** Template SB Admin 2 (Bootstrap 4)
   - **Pelanggan:** Bootstrap 5
 - **Database:** MySQL / MariaDB
 - **Dependency Manager:** Composer
@@ -100,11 +100,29 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal 
     email.SMTPPass  = "GANTI_DENGAN_APP_PASSWORD_GMAIL"
     email.SMTPPort  = 465
     email.SMTPCrypto= "ssl"
-    ```
+    
+```
+    payment gateway:
+
+1. buat akun di midtrans
+https://dashboard.midtrans.com/register
+2. ubah environment ke sandbox
+3. ke bagian setting -> access key 
+4. Salin kedua kunci penting ini:
+    Client Key (diawali dengan SB-Mid-client-...)
+    Server Key (diawali dengan SB-Mid-server-...)
+3. ke bagian settings -> payment -> notification URL
+4. isi dengan URL pada Payment notification URL yang didapat dari ngrok
+
+5. Download ngrok dari ngrok.com.
+6. Jalankan di terminal: ngrok http 8080.
+7. Salin URL HTTPS di bagian Forwarding yang diberikan (misal: https://xxxx.ngrok-free.app)
+```
+
 
 4.  **Setup Database**
     - Buat sebuah database baru di MySQL/MariaDB dengan nama `db_laundry` (atau sesuai dengan yang Anda atur di `.env`).
-    - Impor file SQL yang berisi struktur tabel dan data awal. _(Catatan: Anda perlu menyediakan file `database.sql` di repository Anda)_.
+    - Impor file SQL yang berisi struktur tabel dan data awal .
       ```
 
 ### 3. Menjalankan Aplikasi
@@ -130,21 +148,6 @@ Terima kasih telah mencoba proyek ini!
 
 Dibuat oleh **Moch. Arif Samsul Rizal**.
 
-payment gateway:
-
-1. buat akun di midtrans
-https://dashboard.midtrans.com/register
-2. ubah environment ke sandbox
-3. ke bagian setting -> access key 
-4. Salin kedua kunci penting ini:
-    Client Key (diawali dengan SB-Mid-client-...)
-    Server Key (diawali dengan SB-Mid-server-...)
-3. ke bagian settings -> payment -> notification URL
-4. isi dengan URL pada Payment notification URL yang didapat dari ngrok
-
-5. Download ngrok dari ngrok.com.
-6. Jalankan di terminal: ngrok http 8080.
-7. Salin URL HTTPS di bagian Forwarding yang diberikan (misal: https://xxxx.ngrok-free.app)
 
 
 
