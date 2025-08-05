@@ -60,8 +60,8 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal 
 ### 2. Instalasi
 1.  **Clone Repository**
     ```bash
-    git clone https://github.com/[username-github-anda]/[nama-repo-anda].git
-    cd [nama-repo-anda]
+    git clone https://github.com/moch-rizal/Sistem-Laundry-Web.git
+    cd Sistem-Laundry-Web
     ```
 
 2.  **Instal Dependensi PHP**
@@ -133,3 +133,24 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal 
 Terima kasih telah mencoba proyek ini!
 
 Dibuat oleh **Moch. Arif Samsul Rizal**.
+
+payment gateway:
+
+1. buat akun di midtrans
+https://dashboard.midtrans.com/register
+2. ubah environment ke sandbox
+3. ke bagian setting -> access key 
+4. Salin kedua kunci penting ini:
+    Client Key (diawali dengan SB-Mid-client-...)
+    Server Key (diawali dengan SB-Mid-server-...)
+3. ke bagian settings -> payment -> notification URL
+4. isi dengan URL pada Payment notification URL yang didapat dari ngrok
+
+5. Download ngrok dari ngrok.com.
+6. Jalankan di terminal: ngrok http 8080.
+7. Salin URL HTTPS di bagian Forwarding yang diberikan (misal: https://xxxx.ngrok-free.app)
+
+
+
+
+
