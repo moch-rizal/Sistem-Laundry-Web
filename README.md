@@ -1,0 +1,135 @@
+# Sistem Informasi Laundry Berbasis Web dengan CodeIgniter 4
+
+![Versi PHP](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)
+![Versi CodeIgniter](https://img.shields.io/badge/CodeIgniter-4.5.1-orange.svg)
+![Database](https://img.shields.io/badge/Database-MySQL-lightgrey.svg)
+![Template](https://img.shields.io/badge/UI-Bootstrap%205-purple.svg)
+
+Ini adalah aplikasi web Sistem Informasi Laundry lengkap yang dibangun menggunakan framework PHP CodeIgniter 4. Aplikasi ini dirancang untuk memfasilitasi manajemen operasional bisnis laundry, mulai dari pemesanan oleh pelanggan hingga pengelolaan transaksi oleh admin.
+
+Proyek ini dibuat sebagai bagian dari Ujian Akhir Semester.
+
+## ✨ Fitur Utama
+
+Sistem ini memiliki dua peran utama dengan fitur yang komprehensif:
+
+### 👤 Pelanggan
+- **Registrasi & Login:** Sistem otentikasi yang aman untuk pelanggan.
+- **Dashboard Interaktif:** Melihat ringkasan pesanan aktif dengan status visual (berubah warna sesuai progres) dan riwayat semua transaksi.
+- **Pemesanan Online:** Pelanggan dapat membuat pesanan dari rumah, memilih layanan kiloan atau satuan.
+- **Layanan Ekspres:** Opsi untuk memilih layanan reguler atau ekspres.
+- **Pembayaran Online:** Terintegrasi dengan Midtrans (Sandbox) untuk berbagai metode pembayaran.
+- **Notifikasi Email:** Menerima notifikasi email otomatis setiap kali status pesanan diperbarui oleh admin.
+
+### 💼 Admin
+- **Panel Admin Profesional:** Menggunakan template SB Admin 2 yang modern dan responsif.
+- **Dashboard Analitik:** Menampilkan statistik kunci seperti jumlah pelanggan, pesanan baru, dan total pendapatan.
+- **Manajemen Pesanan (CRUD):**
+  - Melihat semua pesanan masuk dari pelanggan.
+  - Membuat pesanan untuk pelanggan yang datang langsung (walk-in).
+  - Mengupdate rincian pesanan (berat, total harga).
+  - Mengubah status progres laundry (Diproses, Selesai Dicuci, Siap Diambil, dll).
+  - Mengkonfirmasi pembayaran tunai (COD).
+  - Menghapus pesanan.
+- **Manajemen Layanan (CRUD):** Mengelola daftar layanan yang ditawarkan (kiloan, satuan, ekspres) beserta harganya.
+- **Manajemen Pelanggan (CRUD):** Mengelola data semua pelanggan yang terdaftar.
+- **Laporan Transaksi:** Melihat dan memfilter laporan pendapatan berdasarkan rentang tanggal.
+
+## 🛠️ Teknologi yang Digunakan
+- **Backend:** PHP 8.1, CodeIgniter 4
+- **Frontend:**
+  - HTML5, CSS3, JavaScript (jQuery)
+  - **Admin:** Template SB Admin 2 (Bootstrap 5)
+  - **Pelanggan:** Bootstrap 5
+- **Database:** MySQL / MariaDB
+- **Dependency Manager:** Composer
+- **Payment Gateway:** Midtrans (Sandbox)
+- **Email:** SMTP via Gmail
+
+## 🚀 Panduan Instalasi dan Menjalankan Proyek
+
+Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal Anda.
+
+### 1. Prasyarat
+- PHP 8.1 atau lebih baru
+- Composer
+- Server Database (MySQL/MariaDB)
+- Akun Gmail (untuk pengiriman email notifikasi)
+- Akun Sandbox Midtrans
+
+### 2. Instalasi
+1.  **Clone Repository**
+    ```bash
+    git clone https://github.com/[username-github-anda]/[nama-repo-anda].git
+    cd [nama-repo-anda]
+    ```
+
+2.  **Instal Dependensi PHP**
+    Jalankan Composer untuk mengunduh semua library yang dibutuhkan (termasuk CodeIgniter).
+    ```bash
+    composer install
+    ```
+
+3.  **Konfigurasi Environment**
+    Salin file `env` menjadi `.env` dan sesuaikan konfigurasinya.
+    ```bash
+    cp env .env
+    ```
+    Buka file `.env` dan atur variabel berikut:
+    ```dotenv
+    # Atur baseURL sesuai dengan server lokal Anda
+    app.baseURL = 'http://localhost:8080/'
+
+    # Konfigurasi Database
+    database.default.hostname = localhost
+    database.default.database = db_laundry
+    database.default.username = root
+    database.default.password =
+    database.default.DBDriver = MySQLi
+
+    # Konfigurasi Midtrans (Dapatkan dari Dashboard Sandbox Midtrans)
+    MIDTRANS_SERVER_KEY = "GANTI_DENGAN_SERVER_KEY_ANDA"
+    MIDTRANS_CLIENT_KEY = "GANTI_DENGAN_CLIENT_KEY_ANDA"
+    MIDTRANS_IS_PRODUCTION = "false"
+
+    # Konfigurasi Email (Gunakan App Password dari Akun Google)
+    email.fromEmail = "email.anda@gmail.com"
+    email.fromName  = "Laundry Kilat" // dari siapa
+    email.SMTPHost  = "smtp.gmail.com"
+    email.SMTPUser  = "email.anda@gmail.com"
+    email.SMTPPass  = "GANTI_DENGAN_APP_PASSWORD_GMAIL"
+    email.SMTPPort  = 465
+    email.SMTPCrypto= "ssl"
+    ```
+
+4.  **Setup Database**
+    - Buat sebuah database baru di MySQL/MariaDB dengan nama `db_laundry` (atau sesuai dengan yang Anda atur di `.env`).
+    - Impor file SQL yang berisi struktur tabel dan data awal. _(Catatan: Anda perlu menyediakan file `database.sql` di repository Anda)_.
+    - **ATAU**, jika menggunakan Migrations & Seeder (jika sudah diimplementasikan):
+      ```bash
+      php spark migrate
+      php spark db:seed UserSeeder
+      ```
+
+### 3. Menjalankan Aplikasi
+1.  **Jalankan Server Development CodeIgniter**
+    Buka terminal di root proyek dan jalankan:
+    ```bash
+    php spark serve
+    ```
+
+2.  **Akses Aplikasi**
+    Buka browser Anda dan kunjungi alamat `http://localhost:8080`.
+
+### 4. Akun Demo
+- **Admin:**
+  - **Email:** `admin@laundry.com`
+  - **Password:** `password`
+- **Pelanggan:**
+  - Silakan buat akun baru melalui halaman registrasi.
+
+---
+
+Terima kasih telah mencoba proyek ini!
+
+Dibuat oleh **Moch. Arif Samsul Rizal**.
