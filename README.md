@@ -105,10 +105,6 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal 
 4.  **Setup Database**
     - Buat sebuah database baru di MySQL/MariaDB dengan nama `db_laundry` (atau sesuai dengan yang Anda atur di `.env`).
     - Impor file SQL yang berisi struktur tabel dan data awal. _(Catatan: Anda perlu menyediakan file `database.sql` di repository Anda)_.
-    - **ATAU**, jika menggunakan Migrations & Seeder (jika sudah diimplementasikan):
-      ```bash
-      php spark migrate
-      php spark db:seed UserSeeder
       ```
 
 ### 3. Menjalankan Aplikasi
@@ -124,7 +120,7 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal 
 ### 4. Akun Demo
 - **Admin:**
   - **Email:** `admin@laundry.com`
-  - **Password:** `password`
+  - **Password:** `admin123`
 - **Pelanggan:**
   - Silakan buat akun baru melalui halaman registrasi.
 
