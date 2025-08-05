@@ -117,6 +117,50 @@ https://dashboard.midtrans.com/register
 5. Download ngrok dari ngrok.com.
 6. Jalankan di terminal: ngrok http 8080.
 7. Salin URL HTTPS di bagian Forwarding yang diberikan (misal: https://xxxx.ngrok-free.app)
+
+
+Notifikasi Email
+Buat "App Password" di Akun Google Anda:
+
+    Buka Pengaturan Akun Google Anda: myaccount.google.com.
+
+    Pergi ke menu "Keamanan" (Security).
+
+    Pastikan "Verifikasi 2 Langkah" (2-Step Verification) SUDAH AKTIF. Ini wajib.
+
+    Di halaman Keamanan, cari dan klik bagian "Sandi aplikasi" (App passwords).
+
+    Di halaman Sandi Aplikasi:
+
+        Klik "Pilih aplikasi" -> "Lainnya (Nama kustom)...".
+
+        Beri nama (misal: Aplikasi Laundry CI4), lalu klik "Buat".
+
+    Google akan menampilkan password 16 karakter di dalam kotak kuning. Salin password ini. Ini BUKAN password Gmail Anda, ini adalah password khusus untuk aplikasi.
+
+B. Isi Konfigurasi di File .env:
+
+    Buka file .env di root proyek CodeIgniter.
+
+    Tambahkan atau perbarui blok konfigurasi email ini:
+    Generated dotenv
+
+      
+# --- KONFIGURASI EMAIL ---
+email.fromEmail = "email.anda@gmail.com"
+email.fromName  = "Laundry Kilat"
+email.SMTPHost  = "smtp.gmail.com"
+email.SMTPUser  = "email.anda@gmail.com"
+email.SMTPPass  = "PASTE_APP_PASSWORD_16_KARAKTER_DI_SINI"
+email.SMTPPort  = 465
+email.SMTPCrypto= "ssl"
+email.protocol  = "smtp"
+email.mailType  = "html"
+
+
+    Ganti email.anda@gmail.com dengan alamat email Anda.
+
+    Paste "App Password" yang baru saja Anda buat ke dalam email.SMTPPass. Pastikan diapit tanda kutip (") jika mengandung karakter khusus.
 ```
 
 
