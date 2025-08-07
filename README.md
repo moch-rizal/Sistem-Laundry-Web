@@ -82,7 +82,7 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal 
 
     # Konfigurasi Database
     database.default.hostname = localhost
-    database.default.database = db_laundry
+    database.default.database = db_sistem_laundry
     database.default.username = root
     database.default.password =
     database.default.DBDriver = MySQLi
@@ -102,7 +102,9 @@ Berikut adalah langkah-langkah untuk menjalankan proyek ini di lingkungan lokal 
     email.SMTPCrypto= "ssl"
     
 ```
-    payment gateway:
+Langkah-langkah menambahkan payment gateway dan notifikasi email
+
+Payment Gateway:
 
 1. buat akun di midtrans
 https://dashboard.midtrans.com/register
@@ -165,9 +167,10 @@ email.mailType  = "html"
 
 
 4.  **Setup Database**
-    - Buat sebuah database baru di MySQL/MariaDB dengan nama `db_laundry` (atau sesuai dengan yang Anda atur di `.env`).
+    - Buat sebuah database baru di MySQL/MariaDB dengan nama `db_sistem_laundry`.
     - Impor file SQL yang berisi struktur tabel dan data awal .
       ```
+      db_sistem_laundry.sql
 
 ### 3. Menjalankan Aplikasi
 1.  **Jalankan Server Development CodeIgniter**
