@@ -86,7 +86,3 @@ email.mailType  = html
 MIDTRANS_SERVER_KEY=
 MIDTRANS_CLIENT_KEY=
 MIDTRANS_IS_PRODUCTION=false
-
-      
-# --- Konfigurasi JWT ---
-JWT_SECRET_KEY = 
