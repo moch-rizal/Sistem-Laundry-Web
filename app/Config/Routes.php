@@ -64,7 +64,7 @@ $routes->post('/webhook/midtrans', 'WebhookController::midtrans');
 
 
 
-
+//api untuk app mobile
 
 $routes->group('api', ['filter' => 'cors'], static function ($routes) {
     // Rute untuk Otentikasi
@@ -76,9 +76,6 @@ $routes->group('api', ['filter' => 'cors'], static function ($routes) {
 
      // Rute yang Memerlukan Otentikasi (Dilindungi oleh JWTAuthFilter)
     $routes->group('', ['filter' => 'jwtauth'], static function ($routes) {
-        // $routes->get('pesanan', 'Api\PesananController::index');
-        // $routes->post('pesanan', 'Api\PesananController::create');
-        // Nanti kita bisa tambah rute lain di sini (detail, batal, dll)
          // CRUD untuk Pesanan
         $routes->get('pesanan', 'Api\PesananController::index');        // Get all
         $routes->get('pesanan/(:num)', 'Api\PesananController::show/$1'); // Get single
